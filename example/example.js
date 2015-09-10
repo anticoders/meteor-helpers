@@ -2,7 +2,7 @@ if (Meteor.isClient) {
   // counter starts at 0
   Session.setDefault('counter', 0);
 
-  Helpers = new AntiHelpers();
+  Helpers = new AntiHelpers({ reactive: true });
   
   Helpers.define('capitalize', function (value) {
     return value.toString().toUpperCase();
