@@ -4,9 +4,13 @@ if (Meteor.isClient) {
 
   Helpers = new AntiHelpers({ reactive: true });
   
-  Helpers.define('capitalize', function (value) {
-    return value.toString().toUpperCase();
-  });
+  Helpers.define('capitalize');
+
+  Meteor.setTimeout(function () {
+    Helpers.define('capitalize', function (value) {
+      return value.toString().toUpperCase();
+    });
+  }, 1000);
   
   Helpers.define('createdAt', function () {
     return moment(this.createdAt).format('YYYY/MM/DD');

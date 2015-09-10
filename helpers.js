@@ -24,6 +24,9 @@ AntiHelpers = function (options) {
     this.define = function (name, helper) {
       var original;
       
+      if (typeof helper === 'undefined') {
+        helper = function () {};
+      }
       if (typeof name !== 'string') {
         throw new Error('argument "name" must be a string');
       }
