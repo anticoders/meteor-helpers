@@ -6,6 +6,7 @@ Package.describe({
 });
 
 Package.onUse(function (api) {
+  api.versionsFrom('METEOR@1.0');
   api.use(['templating', 'tracker']);
   api.addFiles('helpers.js');
   api.export('AntiHelpers');
