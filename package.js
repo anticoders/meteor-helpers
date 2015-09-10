@@ -6,5 +6,7 @@ Package.describe({
 });
 
 Package.onUse(function (api) {
+  api.use(['templating']);
   api.addFiles('helpers.js');
+  api.export('AntiHelpers');
 });
