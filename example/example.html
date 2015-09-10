@@ -3,9 +3,11 @@
 </head>
 
 <body>
+  {{#with createdAt=$.yesterday}}
   <h1>Welcome to {{$.capitalize "Meteor!"}}</h1>
-
+  <h3>{{$.createdAt}} <small>(yesterday)</small></h3>
   {{> hello}}
+  {{/with}}
 </body>
 
 <template name="hello">

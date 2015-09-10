@@ -7,6 +7,14 @@ if (Meteor.isClient) {
   Helpers.capitalize = function (value) {
     return value.toString().toUpperCase();
   };
+  
+  Helpers.createdAt = function () {
+    return moment(this.createdAt).format('YYYY/MM/DD');
+  };
+
+  Helpers.yesterday = function () {
+    return moment().subtract(1, 'day').toDate();
+  };
 
   Template.hello.helpers({
     counter: function () {
