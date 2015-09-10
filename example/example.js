@@ -4,17 +4,19 @@ if (Meteor.isClient) {
 
   Helpers = new AntiHelpers();
   
-  Helpers.capitalize = function (value) {
+  Helpers.define('capitalize', function (value) {
     return value.toString().toUpperCase();
-  };
+  });
   
-  Helpers.createdAt = function () {
+  Helpers.define('createdAt', function () {
     return moment(this.createdAt).format('YYYY/MM/DD');
-  };
+  });
 
-  Helpers.yesterday = function () {
+  Helpers.registerAs('$');
+
+  Helpers.define('yesterday', function () {
     return moment().subtract(1, 'day').toDate();
-  };
+  });
 
   Template.hello.helpers({
     counter: function () {
@@ -28,8 +30,7 @@ if (Meteor.isClient) {
       Session.set('counter', Session.get('counter') + 1);
     }
   });
-  
-  Helpers.load('$');
+
 }
 
 if (Meteor.isServer) {
